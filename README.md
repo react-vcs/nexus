@@ -1,6 +1,31 @@
+# Step I Follow to Develop This Project
+
+### Backend API
+
+- Understand Project and Check ER Diagram
+
+- install next.js
+- install prisma & prisma client
+
+```bash
+npm install prisma --save-dev
+
+npx prisma init --datasource-provider mysql
+
+npm i @prisma/client
+
+npx prisma migrate dev --name init
+```
+
+- Create all basic models in schema.prisma file
+
+### Frontend
+
+First, run the development server:
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Run the Project
 
 First, run the development server:
 
