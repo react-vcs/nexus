@@ -9,3 +9,81 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+// users Model
+model users {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  firstName String
+  lastName  String
+  mobile    String
+  password  String
+  otp       String   @default("0")
+  created   DateTime @default(now()) @db.Timestamp(0)
+  updated   DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// comments Model
+model comments {
+  id           Int      @id @default(autoincrement())
+  userID       Int
+  postID       Int
+  descriptions String
+  created      DateTime @default(now()) @db.Timestamp(0)
+  updated      DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// news_list Model
+model news_list {
+  id        Int      @id @default(autoincrement())
+  title     String
+  short_des String
+  img1      String
+  img2      String
+  img3      String
+  img4      String
+  keywords  String
+  long_des  String   @db.LongText
+  type      String
+  catID     Int
+  created   DateTime @default(now()) @db.Timestamp(0)
+  updated   DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// categories Model
+model categories {
+  id      Int      @id @default(autoincrement())
+  name    String   @unique
+  created DateTime @default(now()) @db.Timestamp(0)
+  updated DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// socials Model
+model socials {
+  id       Int      @id @default(autoincrement())
+  facebook String
+  youtube  String
+  twitter  String
+  linkedin String
+  about    String   @db.Text
+  address  String   @db.Text
+  created  DateTime @default(now()) @db.Timestamp(0)
+  updated  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// subscribers Model
+model subscribers {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  created DateTime @default(now()) @db.Timestamp(0)
+  updated DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// policies Model
+model policies {
+  id       Int      @id @default(autoincrement())
+  long_des String   @db.LongText
+  type     String
+  created  DateTime @default(now()) @db.Timestamp(0)
+  updated  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+}
