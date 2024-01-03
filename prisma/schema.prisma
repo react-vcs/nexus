@@ -12,50 +12,56 @@ datasource db {
 
 // users Model
 model users {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
   firstName String
   lastName  String
   mobile    String
   password  String
-  otp       String   @default("0")
-  created   DateTime @default(now()) @db.Timestamp(0)
-  updated   DateTime @default(now()) @updatedAt @db.Timestamp(0)
-}
-
-// comments Model
-model comments {
-  id           Int      @id @default(autoincrement())
-  userID       Int
-  postID       Int
-  descriptions String
-  created      DateTime @default(now()) @db.Timestamp(0)
-  updated      DateTime @default(now()) @updatedAt @db.Timestamp(0)
-}
-
-// news_list Model
-model news_list {
-  id        Int      @id @default(autoincrement())
-  title     String
-  short_des String
-  img1      String
-  img2      String
-  img3      String
-  img4      String
-  keywords  String
-  long_des  String   @db.LongText
-  type      String
-  catID     Int
-  created   DateTime @default(now()) @db.Timestamp(0)
-  updated   DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  otp       String     @default("0")
+  comments  comments[]
+  created   DateTime   @default(now()) @db.Timestamp(0)
+  updated   DateTime   @default(now()) @updatedAt @db.Timestamp(0)
 }
 
 // categories Model
 model categories {
-  id      Int      @id @default(autoincrement())
-  name    String   @unique
-  created DateTime @default(now()) @db.Timestamp(0)
-  updated DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  news_list news_list[]
+  created   DateTime    @default(now()) @db.Timestamp(0)
+  updated   DateTime    @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// news_list Model
+model news_list {
+  id         Int         @id @default(autoincrement())
+  title      String
+  short_des  String
+  img1       String
+  img2       String
+  img3       String
+  img4       String
+  keywords   String
+  long_des   String      @db.LongText
+  type       String
+  catID      Int?
+  categories categories? @relation(fields: [catID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  comments   comments[]
+  created    DateTime    @default(now()) @db.Timestamp(0)
+  updated    DateTime    @default(now()) @updatedAt @db.Timestamp(0)
+}
+
+// comments Model
+model comments {
+  id           Int        @id @default(autoincrement())
+  userID       Int?
+  users        users?     @relation(fields: [userID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  postID       Int?
+  news_list    news_list? @relation(fields: [postID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  descriptions String
+  created      DateTime   @default(now()) @db.Timestamp(0)
+  updated      DateTime   @default(now()) @updatedAt @db.Timestamp(0)
 }
 
 // socials Model

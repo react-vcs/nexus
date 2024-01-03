@@ -18,6 +18,7 @@ npx prisma migrate dev --name init
 ```
 
 - Create all basic models in schema.prisma file
+- build relation in all prisma schema models
 
 ### Frontend
 
