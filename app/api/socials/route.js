@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { NextResponse } from "next/server";
+import { StatusCodes } from "http-status-codes";
+import { NextResponseModified } from "@/utility/nextResponse";
 export const dynamic = "force-dynamic";
 let prisma = new PrismaClient();
 // Create
@@ -9,32 +10,18 @@ export const POST = async (req, res) => {
     let result = await prisma.socials.create({
       data: reqData,
     });
-    return NextResponse.json({
-      status: "success",
-      data: result,
-    });
+    return NextResponseModified(StatusCodes.CREATED, result);
   } catch (e) {
-    console.error("Error:", e);
-    return NextResponse.error({
-      status: "Error",
-      message: "An error occurred while processing the request.",
-    });
+    return NextResponseModified(StatusCodes.BAD_REQUEST);
   }
 };
 // Read
 export const GET = async (req, res) => {
   try {
     let result = await prisma.socials.findMany();
-    return NextResponse.json({
-      status: "success",
-      data: result,
-    });
+    return NextResponseModified(StatusCodes.OK, result);
   } catch (e) {
-    console.error("Error:", e);
-    return NextResponse.error({
-      status: "Error",
-      message: "An error occurred while processing the request.",
-    });
+    return NextResponseModified(StatusCodes.BAD_REQUEST);
   }
 };
 
@@ -48,16 +35,9 @@ export const PUT = async (req, res) => {
       where: { id: id },
       data: reqData,
     });
-    return NextResponse.json({
-      status: "success",
-      data: result,
-    });
+    return NextResponseModified(StatusCodes.OK, result);
   } catch (e) {
-    console.error("Error:", e);
-    return NextResponse.error({
-      status: "Error",
-      message: "An error occurred while processing the request.",
-    });
+    return NextResponseModified(StatusCodes.BAD_REQUEST);
   }
 };
 
@@ -69,15 +49,8 @@ export const DELETE = async (req, res) => {
     let result = await prisma.socials.delete({
       where: { id: id },
     });
-    return NextResponse.json({
-      status: "success",
-      data: result,
-    });
+    return NextResponseModified(StatusCodes.OK, result);
   } catch (e) {
-    console.error("Error:", e);
-    return NextResponse.json({
-      status: "Error",
-      message: "An error occurred while processing the request.",
-    });
+    return NextResponseModified(StatusCodes.BAD_REQUEST);
   }
 };
