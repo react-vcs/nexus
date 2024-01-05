@@ -19,6 +19,8 @@ npx prisma migrate dev --name init
 
 - Create all basic models in schema.prisma file
 - build relation in all prisma schema models
+- create policies,socials,subscribers api
+- create user login & registration api | create a utility function for JWT(jose) encode & Decode | set cookie during login
 
 ### Frontend
 
