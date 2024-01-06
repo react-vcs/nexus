@@ -1,19 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 import { StatusCodes } from "http-status-codes";
 import { NextResponseModified } from "@/utility/nextResponse";
+import { headers } from "next/headers";
 export const dynamic = "force-dynamic";
 let prisma = new PrismaClient();
 
 // Create
-export const POST = async (req, res) => {
+export const GET = async (req, res) => {
   try {
-    let reqData = await req.json();
-    let count = await prisma.users.count({ where: reqData });
-    if (count === 1) {
-      return NextResponseModified(StatusCodes.OK);
-    } else {
-      return NextResponseModified(StatusCodes.BAD_REQUEST);
-    }
+    let headerList = headers();
+    let id = parseInt(headerList.get("id"));
+    let result = await prisma.users.findUnique({ where: { id: id } });
+    return NextResponseModified(StatusCodes.OK, result);
   } catch (e) {
     return NextResponseModified(StatusCodes.BAD_REQUEST);
   }

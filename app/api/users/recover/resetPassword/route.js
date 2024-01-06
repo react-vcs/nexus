@@ -1,8 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { StatusCodes } from "http-status-codes";
 import { NextResponseModified } from "@/utility/nextResponse";
-import { decodeToken, encodeToken } from "@/utility/tokenEncodeDecode";
-import { sendMail } from "@/utility/email";
 export const dynamic = "force-dynamic";
 let prisma = new PrismaClient();
 
