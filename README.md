@@ -23,6 +23,12 @@ npx prisma migrate dev --name init
 - create user login & registration api | create a utility function for JWT(jose) encode & Decode | set cookie during login
 - Complete User Password Recovery Process. Email Verify (nodemailer) > Send OTP to verified Email > OTP Verify > reset Password
 - Complete middleware for Login user. Set Cookie to verify login user details. Do after login Profile Update & details
+- Create News Category API CRUD
+- Create POSTs API CRUD
+- Create API of Single news Post View
+- create API => Search By category in Post
+- create API => Search By type in Post
+- create API => Search By keyword in Post ( all table )
 
 ### Frontend
 
