@@ -29,6 +29,7 @@ npx prisma migrate dev --name init
 - create API => Search By category in Post
 - create API => Search By type in Post
 - create API => Search By keyword in Post ( all table )
+- working with comments api
 
 ### Frontend
 

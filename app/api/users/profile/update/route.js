@@ -17,7 +17,6 @@ export const POST = async (req, res) => {
     });
     return NextResponseModified(StatusCodes.OK, result);
   } catch (e) {
-    console.error(e);
     return NextResponseModified(StatusCodes.BAD_REQUEST);
   }
 };
