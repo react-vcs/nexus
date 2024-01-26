@@ -34,7 +34,7 @@ const Footer = () => {
                   </svg>
                 </div>
                 <input
-                  className="block p-3 pl-9 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 "
+                  className="block p-3 pl-9 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 outline-none	"
                   placeholder="Enter your email"
                   type="email"
                   id="email"
@@ -44,7 +44,7 @@ const Footer = () => {
               <div>
                 <button
                   type="submit"
-                  className="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+                  className="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800"
                 >
                   Subscribe
                 </button>
@@ -358,7 +358,7 @@ const Footer = () => {
           </span>
           <ul className="flex justify-center mt-5 space-x-5">
             <li>
-              <a href="#" className="text-gray-500 hover:text-gray-900  ">
+              <a href="#" className="text-gray-500 ">
                 <svg
                   className="h-4 w-4"
                   aria-hidden="true"
@@ -375,7 +375,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-500 hover:text-gray-900 ">
+              <a href="#" className="text-gray-500 ">
                 <svg
                   className="w-4 h-4"
                   aria-hidden="true"
@@ -391,7 +391,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-500 hover:text-gray-900 ">
+              <a href="#" className="text-gray-500 ">
                 <svg
                   className="w-4 h-4"
                   aria-hidden="true"
@@ -408,7 +408,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-500 hover:text-gray-900 ">
+              <a href="#" className="text-gray-500">
                 <svg
                   className="w-4 h-4"
                   aria-hidden="true"
