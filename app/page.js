@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import SingleBlog from "./components/SingleBlog";
+// import SingleBlog from "../htmlTemplate/SingleBlog";
 
 const Home = () => {
   return (
