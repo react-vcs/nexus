@@ -26,7 +26,7 @@ const Slider = (props) => {
     <>
       <Carousel
         responsive={responsive}
-        autoPlay={true}
+        autoPlay={false}
         infinite={true}
         autoPlaySpeed={2000}
         keyBoardControl={true}
@@ -44,7 +44,7 @@ const Slider = (props) => {
               <div className="bg-white lg:mx-3 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
                 <div className="lg:w-1/2">
                   <div
-                    className="lg:scale-110 h-80 bg-cover lg:h-full rounded-b-none border lg:rounded-lg"
+                    className="h-80 bg-cover  rounded-b-none border lg:rounded-lg"
                     style={{
                       backgroundImage: `url(${item?.img1})`,
                     }}

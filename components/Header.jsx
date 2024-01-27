@@ -39,7 +39,7 @@ const Header = (props) => {
   };
   return (
     <>
-      <nav className="bg-black py-4">
+      <nav className="bg-black py-4 border-b border-gray-50">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div
@@ -98,15 +98,17 @@ const Header = (props) => {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {categories.map((menu, index) => (
-                    <Link
-                      href={`category?id=${menu?.id}&name=${menu?.name}`}
-                      className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                      key={index}
-                    >
-                      {menu?.name}
-                    </Link>
-                  ))}
+                  {categories.map((menu, index) => {
+                    return (
+                      <Link
+                        href={`category?id=${menu?.id}&name=${menu?.name}`}
+                        className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                        key={index}
+                      >
+                        {menu?.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -137,7 +139,7 @@ const Header = (props) => {
                   <form onSubmit={submitSearchForm}>
                     <label
                       htmlFor="default-search"
-                      className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+                      className="mb-2 text-sm font-medium text-gray-900 sr-only "
                     >
                       Search
                     </label>
@@ -162,15 +164,15 @@ const Header = (props) => {
                       <input
                         type="search"
                         id="default-search"
-                        className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
                         placeholder="Search Mockups, Logos..."
                         required
                       />
                       <button
                         type="submit"
-                        className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-white absolute end-2.5 bottom-2.5 bg-red-600 font-medium rounded-lg text-sm px-6 py-2"
                       >
-                        Search
+                        Search Now
                       </button>
                     </div>
                   </form>

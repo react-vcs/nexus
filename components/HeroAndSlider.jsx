@@ -3,9 +3,9 @@ import Slider from "./slider";
 
 const HeroAndSlider = (props) => {
   return (
-    <section className="bg-white pt-8 px-4 lg:py-24 lg:px-12">
+    <section className="bg-gray-950 pt-8 px-4 lg:py-24 lg:px-12">
       <div className="mx-auto max-w-screen-xl text-center ">
-        <div className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full  hover:bg-gray-200">
+        <div className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-10 text-sm text-gray-700 bg-gray-100 rounded-full  hover:bg-gray-200">
           <span className="text-xs bg-red-600 rounded-full text-white px-4 py-1.5 mr-3">
             New
           </span>{" "}
@@ -25,10 +25,10 @@ const HeroAndSlider = (props) => {
             ></path>
           </svg>
         </div>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl ">
+        <h1 className="mb-8 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl ">
           Unveiling Unique Heroes, Icons of Courage
         </h1>
-        <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 ">
+        <p className="mb-12 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 ">
           Journey into the Unknown: Unraveling Tales of Bravery, Resilience, and
           Triumph in the Ever-Changing Tapestry of Our World.
         </p>
@@ -53,11 +53,11 @@ const HeroAndSlider = (props) => {
           </Link>
           <Link
             href={"/type?type=Video"}
-            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 "
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300  focus:ring-4 focus:ring-gray-100 "
           >
             <svg
               className="mr-2 -ml-1 w-5 h-5"
-              fill="currentColor"
+              fill="white"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
