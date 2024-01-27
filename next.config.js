@@ -4,11 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "tailwindui.com",
+        hostname: "tds-images-bn.thedailystar.net",
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "tds-images.thedailystar.net",
       },
     ],
   },
