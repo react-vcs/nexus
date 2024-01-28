@@ -2,10 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 const Header = (props) => {
-  const searchParams = useSearchParams();
-  const catID = searchParams.get("id");
+  // const searchParams = useSearchParams();
+  // const catID = searchParams.get("id");
+  const catID = 0;
 
   let categories = props?.data?.categories?.data?.slice(1, 5);
   const [userMenu, setuserMenu] = useState(false);
