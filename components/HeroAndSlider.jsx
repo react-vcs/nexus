@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Slider from "./slider";
+import CurrentDateTime from "./currentDateTime";
 
 const HeroAndSlider = (props) => {
   return (
     <section className="bg-gray-950 pt-8 px-4 lg:py-24 lg:px-12">
       <div className="mx-auto max-w-screen-xl text-center ">
+        <CurrentDateTime />
+        <br />
         <div className="inline-flex justify-between items-center py-1 px-1 pr-4 mb-10 text-sm text-gray-700 bg-gray-100 rounded-full  hover:bg-gray-200">
           <span className="text-xs bg-red-600 rounded-full text-white px-4 py-1.5 mr-3">
             New

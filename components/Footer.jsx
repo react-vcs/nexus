@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Newsletter from "./newsletter";
-
 const Footer = ({ ...props }) => {
   let PopularPicks = props?.data?.categories?.data?.slice(6, 10);
   let ExclusiveDeals = props?.data?.categories?.data?.slice(11, 15);
