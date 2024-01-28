@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const Header = (props) => {
   // const searchParams = useSearchParams();
   // const catID = searchParams.has("id") ? searchParams.get("id") : 0;
-
+  const catID = 0;
   let categories = props?.data?.categories?.data?.slice(1, 5);
   const [userMenu, setuserMenu] = useState(false);
   const [mobileNavMenu, setmobileNavMenu] = useState(false);
