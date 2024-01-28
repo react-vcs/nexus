@@ -2,8 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-
+import { useSearchParams } from "next/navigation";
 const Header = (props) => {
+  const searchParams = useSearchParams();
+  const catID = searchParams.get("id");
+
   let categories = props?.data?.categories?.data?.slice(1, 5);
   const [userMenu, setuserMenu] = useState(false);
   const [mobileNavMenu, setmobileNavMenu] = useState(false);
@@ -98,11 +101,13 @@ const Header = (props) => {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {categories.map((menu, index) => {
+                  {categories?.map((menu, index) => {
                     return (
                       <Link
                         href={`category?id=${menu?.id}&name=${menu?.name}`}
-                        className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                        className={`${
+                          catID == menu?.id ? "text-red-600" : "text-white"
+                        }  block rounded-md px-3 py-2 text-base font-medium`}
                         key={index}
                       >
                         {menu?.name}
@@ -258,11 +263,13 @@ const Header = (props) => {
           id="mobile-menu"
         >
           <div className="space-y-1 px-2 pb-3 pt-2">
-            {categories.map((menu, index) => {
+            {categories?.map((menu, index) => {
               return (
                 <Link
                   href={`category?id=${menu?.id}&name=${menu?.name}`}
-                  className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                  className={`${
+                    catID == menu?.id ? "text-red-600" : "text-white"
+                  }  block rounded-md px-3 py-2 text-base font-medium`}
                   key={index}
                 >
                   {menu?.name}
