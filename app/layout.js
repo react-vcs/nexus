@@ -1,6 +1,7 @@
 import NextTopLoader from "nextjs-toploader";
 import { Inter } from "next/font/google";
 import "/public/css/globals.css";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ const RootLayout = ({ children }) => {
           zIndex={1600}
           showAtBottom={false}
         />
+        <Toaster />
       </body>
     </html>
   );

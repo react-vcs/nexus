@@ -8,10 +8,10 @@ const BlogSinglePage = async (props) => {
   let id = props?.searchParams["id"];
   let catId = props?.searchParams["cat"];
   let singlePostContent = await GetData(
-    `${process.env.API_URL}news/posts/details?id=${id}`
+    `${process.env.NEXT_PUBLIC_API_URL}news/posts/details?id=${id}`
   );
   let catBasedproduct = await GetData(
-    `${process.env.API_URL}news/posts/by/category?id=${catId}`
+    `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/category?id=${catId}`
   );
 
   return (

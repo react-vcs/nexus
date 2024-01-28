@@ -5,7 +5,7 @@ import { GetData } from "@/utility/fetch";
 const SearchPage = async (props) => {
   let keyword = props?.searchParams["keyword"];
   let data = await GetData(
-    `${process.env.API_URL}news/posts/by/search?keyword=${keyword}`
+    `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/search?keyword=${keyword}`
   );
   return (
     <>

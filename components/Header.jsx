@@ -48,7 +48,8 @@ const Header = (props) => {
           <div className="relative flex h-16 items-center justify-between">
             <div
               className="absolute inset-y-0 left-0 flex items-center sm:hidden"
-              onClick={toggleMobileNavMenu}
+              // onClick={toggleMobileNavMenu}
+              onTouchStart={toggleMobileNavMenu}
             >
               <button
                 type="button"
@@ -186,7 +187,7 @@ const Header = (props) => {
               </div>
               {/* Search End  */}
               <div className="relative ml-3">
-                <div onClick={toggleUserMenu}>
+                <div onTouchStart={toggleUserMenu}>
                   <button
                     type="button"
                     className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"

@@ -6,11 +6,11 @@ import { GetData } from "@/utility/fetch";
 
 const Home = async () => {
   let Slider = await GetData(
-    `${process.env.API_URL}news/posts/by/type?type=Slider`
+    `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/type?type=Slider`
   );
-  let Latest = await GetData(`${process.env.API_URL}news/posts`);
+  let Latest = await GetData(`${process.env.NEXT_PUBLIC_API_URL}news/posts`);
   let Popular = await GetData(
-    `${process.env.API_URL}news/posts/by/type?type=Feature`
+    `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/type?type=Feature`
   );
   let data = { slider: Slider, latest: Latest, popular: Popular };
   return (

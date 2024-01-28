@@ -6,7 +6,9 @@ import FrontendLayout from "@/components/layout/frontend";
 import parse from "html-react-parser";
 const PrivacySingle = async (props) => {
   let id = props?.searchParams["id"];
-  let data = await GetData(`${process.env.API_URL}policies/details?id=${id}`);
+  let data = await GetData(
+    `${process.env.NEXT_PUBLIC_API_URL}policies/details?id=${id}`
+  );
   return (
     <>
       <FrontendLayout>

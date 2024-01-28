@@ -6,7 +6,7 @@ const CategoryPage = async (props) => {
   let id = props?.searchParams["id"];
   let name = props?.searchParams["name"];
   let data = await GetData(
-    `${process.env.API_URL}news/posts/by/category?id=${id}`
+    `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/category?id=${id}`
   );
   return (
     <>
