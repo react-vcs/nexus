@@ -3,7 +3,6 @@ import BlogSectionWithImage from "@/components/blog/withImage";
 import Link from "next/link";
 import { GetData } from "@/utility/fetch";
 import FrontendLayout from "@/components/layout/frontend";
-import parse from "html-react-parser";
 const BlogSinglePage = async (props) => {
   let id = props?.searchParams["id"];
   let catId = props?.searchParams["cat"];
@@ -68,9 +67,7 @@ const BlogSinglePage = async (props) => {
                 {/* <figcaption>Digital art by Anonymous</figcaption> */}
               </figure>
 
-              <div className="pt-10">
-                {parse(singlePostContent?.data?.long_des)}
-              </div>
+              <div className="pt-10">{singlePostContent?.data?.long_des}</div>
               {/* Comment Section  */}
               <section className="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
                 <div className="mx-auto px-4">

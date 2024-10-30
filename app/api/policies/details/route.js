@@ -8,7 +8,7 @@ let prisma = new PrismaClient();
 export const GET = async (req, res) => {
   try {
     let { searchParams } = new URL(req?.url);
-    let id = parseInt(searchParams.get("id"));
+    let id = searchParams.get("id");
     let result = await prisma.policies.findUnique({ where: { id: id } });
     return NextResponseModified(StatusCodes.OK, result);
   } catch (e) {

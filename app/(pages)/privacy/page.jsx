@@ -1,9 +1,5 @@
-import Image from "next/image";
-import BlogSectionWithImage from "@/components/blog/withImage";
-import Link from "next/link";
 import { GetData } from "@/utility/fetch";
 import FrontendLayout from "@/components/layout/frontend";
-import parse from "html-react-parser";
 const PrivacySingle = async (props) => {
   let id = props?.searchParams["id"];
   let data = await GetData(
@@ -20,7 +16,7 @@ const PrivacySingle = async (props) => {
                   {data?.data?.type}
                 </h1>
               </header>
-              <div className="pt-10">{parse(data?.data?.long_des)}</div>
+              <div className="pt-10">{data?.data?.long_des}</div>
             </article>
           </div>
         </main>

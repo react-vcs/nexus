@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 // import { useSearchParams } from "next/navigation";
 const Header = (props) => {
   // const searchParams = useSearchParams();
@@ -11,7 +11,6 @@ const Header = (props) => {
   const [userMenu, setuserMenu] = useState(false);
   const [mobileNavMenu, setmobileNavMenu] = useState(false);
   const [showSearch, setshowSearch] = useState(false);
-
   const toggleUserMenu = () => {
     setuserMenu(!userMenu);
   };

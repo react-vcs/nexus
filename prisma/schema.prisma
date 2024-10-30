@@ -1,18 +1,18 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// This is your Prisma schema file for MongoDB
+// Learn more about MongoDB support here: https://pris.ly/d/prisma-mongodb
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 // users Model
 model users {
-  id        Int        @id @default(autoincrement())
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
   email     String     @unique
   firstName String
   lastName  String
@@ -20,22 +20,22 @@ model users {
   password  String
   otp       String     @default("0")
   comments  comments[]
-  created   DateTime   @default(now()) @db.Timestamp(0)
-  updated   DateTime   @default(now()) @updatedAt @db.Timestamp(0)
+  created   DateTime   @default(now())
+  updated   DateTime   @updatedAt
 }
 
 // categories Model
 model categories {
-  id        Int         @id @default(autoincrement())
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
   name      String      @unique
   news_list news_list[]
-  created   DateTime    @default(now()) @db.Timestamp(0)
-  updated   DateTime    @default(now()) @updatedAt @db.Timestamp(0)
+  created   DateTime    @default(now())
+  updated   DateTime    @updatedAt
 }
 
 // news_list Model
 model news_list {
-  id         Int         @id @default(autoincrement())
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
   title      String
   short_des  String
   img1       String
@@ -43,53 +43,53 @@ model news_list {
   img3       String
   img4       String
   keywords   String
-  long_des   String      @db.LongText
+  long_des   String      @db.String
   type       String
-  catID      Int?
-  categories categories? @relation(fields: [catID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  catID      String?     @db.ObjectId
+  categories categories? @relation(fields: [catID], references: [id])
   comments   comments[]
-  created    DateTime    @default(now()) @db.Timestamp(0)
-  updated    DateTime    @default(now()) @updatedAt @db.Timestamp(0)
+  created    DateTime    @default(now())
+  updated    DateTime    @updatedAt
 }
 
 // comments Model
 model comments {
-  id           Int        @id @default(autoincrement())
-  userID       Int?
-  users        users?     @relation(fields: [userID], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  postID       Int?
-  news_list    news_list? @relation(fields: [postID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  userID       String?    @db.ObjectId
+  users        users?     @relation(fields: [userID], references: [id])
+  postID       String?    @db.ObjectId
+  news_list    news_list? @relation(fields: [postID], references: [id])
   descriptions String
-  created      DateTime   @default(now()) @db.Timestamp(0)
-  updated      DateTime   @default(now()) @updatedAt @db.Timestamp(0)
+  created      DateTime   @default(now())
+  updated      DateTime   @updatedAt
 }
 
 // socials Model
 model socials {
-  id       Int      @id @default(autoincrement())
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
   facebook String
   youtube  String
   twitter  String
   linkedin String
-  about    String   @db.Text
-  address  String   @db.Text
-  created  DateTime @default(now()) @db.Timestamp(0)
-  updated  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  about    String   @db.String
+  address  String   @db.String
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt
 }
 
 // subscribers Model
 model subscribers {
-  id      Int      @id @default(autoincrement())
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
   email   String   @unique
-  created DateTime @default(now()) @db.Timestamp(0)
-  updated DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  created DateTime @default(now())
+  updated DateTime @updatedAt
 }
 
 // policies Model
 model policies {
-  id       Int      @id @default(autoincrement())
-  long_des String   @db.LongText
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  long_des String   @db.String
   type     String
-  created  DateTime @default(now()) @db.Timestamp(0)
-  updated  DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt
 }

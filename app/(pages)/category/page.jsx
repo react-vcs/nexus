@@ -3,8 +3,9 @@ import BlogSectionWithImage from "@/components/blog/withImage";
 import { GetData } from "@/utility/fetch";
 
 const CategoryPage = async (props) => {
-  let id = props?.searchParams["id"];
-  let name = props?.searchParams["name"];
+  let searchP = await props?.searchParams;
+  let id = searchP["id"];
+  let name = searchP["name"];
   let data = await GetData(
     `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/category?id=${id}`
   );
