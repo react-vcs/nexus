@@ -1,5 +1,6 @@
 const NewsLetter = async (props) => {
-  let email = props?.searchParams["email"];
+  let searchP = await props?.searchParams;
+  let email = await searchP["email"];
 
   const options = {
     method: "POST",

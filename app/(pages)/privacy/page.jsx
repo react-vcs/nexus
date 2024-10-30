@@ -1,7 +1,8 @@
 import { GetData } from "@/utility/fetch";
 import FrontendLayout from "@/components/layout/frontend";
 const PrivacySingle = async (props) => {
-  let id = props?.searchParams["id"];
+  let searchP = await props?.searchParams;
+  let id = await searchP["id"];
   let data = await GetData(
     `${process.env.NEXT_PUBLIC_API_URL}policies/details?id=${id}`
   );

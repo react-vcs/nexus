@@ -4,8 +4,9 @@ import Link from "next/link";
 import { GetData } from "@/utility/fetch";
 import FrontendLayout from "@/components/layout/frontend";
 const BlogSinglePage = async (props) => {
-  let id = props?.searchParams["id"];
-  let catId = props?.searchParams["cat"];
+  let searchP = await props?.searchParams;
+  let id = await searchP["id"];
+  let catId = await searchP["cat"];
   let singlePostContent = await GetData(
     `${process.env.NEXT_PUBLIC_API_URL}news/posts/details?id=${id}`
   );
@@ -78,7 +79,7 @@ const BlogSinglePage = async (props) => {
                   </div>
                   <form className="mb-6">
                     <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                      <label for="comment" className="sr-only">
+                      <label htmlFor="comment" className="sr-only">
                         Your comment
                       </label>
                       <textarea
@@ -192,8 +193,8 @@ const BlogSinglePage = async (props) => {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             strokeWidth="2"
                             d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
                           />
@@ -295,8 +296,8 @@ const BlogSinglePage = async (props) => {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             strokewidth="2"
                             d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
                           />
@@ -400,7 +401,7 @@ const BlogSinglePage = async (props) => {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
+                            strokeLinecap="round"
                             stroke-linejoin="round"
                             strokeWidth="2"
                             d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
@@ -505,7 +506,7 @@ const BlogSinglePage = async (props) => {
                           <path
                             stroke="currentColor"
                             stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinejoin="round"
                             strokeWidth="2"
                             d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
                           />
