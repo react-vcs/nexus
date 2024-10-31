@@ -5,7 +5,13 @@ const BlogSectionWithImage = ({ ...props }) => {
   let data = props?.data;
 
   // Function to calculate reading time based on word count
+  // const calculateReadingTime = (text, wordsPerMinute = 20) => {
+  //   const wordCount = text.split(/\s+/).length;
+  //   return Math.ceil(wordCount / wordsPerMinute);
+  // };
+
   const calculateReadingTime = (text, wordsPerMinute = 20) => {
+    if (!text) return 0; // or any default value you'd prefer
     const wordCount = text.split(/\s+/).length;
     return Math.ceil(wordCount / wordsPerMinute);
   };

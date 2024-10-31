@@ -13,17 +13,18 @@ const Home = async () => {
     `${process.env.NEXT_PUBLIC_API_URL}news/posts/by/type?type=Feature`
   );
   let data = { slider: Slider, latest: Latest, popular: Popular };
+
   return (
     <>
       <FrontendLayout>
-        <HeroAndSlider data={data?.slider?.data} />
+        <HeroAndSlider data={data?.slider?.data || []} />
         <BlogSectionWithoutImage
-          data={data?.latest?.data}
+          data={data?.latest?.data || []}
           heading="Breaking Headlines"
           subHeading="Concise Subtitles Reflecting News Highlights"
         />
         <BlogSectionWithImage
-          data={data?.popular?.data}
+          data={data?.popular?.data || []}
           heading="Trending Headlines"
           subHeading="Captivating Subtitles Echoing News Significance"
         />

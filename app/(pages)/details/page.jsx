@@ -1,6 +1,5 @@
 import Image from "next/image";
 import BlogSectionWithImage from "@/components/blog/withImage";
-import Link from "next/link";
 import { GetData } from "@/utility/fetch";
 import FrontendLayout from "@/components/layout/frontend";
 const BlogSinglePage = async (props) => {
@@ -70,7 +69,7 @@ const BlogSinglePage = async (props) => {
 
               <div className="pt-10">{singlePostContent?.data?.long_des}</div>
               {/* Comment Section  */}
-              <section className="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
+              {/* <section className="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
                 <div className="mx-auto px-4">
                   <div className="flex justify-between items-center mb-6">
                     <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
@@ -516,7 +515,7 @@ const BlogSinglePage = async (props) => {
                     </div>
                   </article>
                 </div>
-              </section>
+              </section> */}
               {/* Comment Section  */}
             </article>
           </div>
